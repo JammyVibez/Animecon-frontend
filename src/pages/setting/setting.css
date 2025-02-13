@@ -1,0 +1,224 @@
+
+
+/* Container */
+/* .settings-container {
+ display: flex;
+}
+
+.settingRight {
+  flex: 9;
+} */
+
+/* Card */
+/* .card {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: 50px;
+  padding: 30px;
+  width: 400px;
+  animation: float 6s ease-in-out infinite;
+} */
+
+/* Title */
+/* .title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+} */
+
+/* Form Groups */
+/* .form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: black;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.3);
+} */
+
+/* File Upload */
+/* .file-upload input[type="file"] {
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+} */
+
+/* Button */
+/* .btn-setting {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff7eb3, #ff758c);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
+} */
+
+/* Animations */
+/* @keyframes float {
+  0%,
+  100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(10deg);
+  }
+} */
+
+
+/* setting.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* :root {
+    --primary-color: #6a00f4;
+    --secondary-color: #20003a;
+    --accent-color: #ff00ff;
+    --text-color: #fff;
+    --bg-dark: #10002b;
+    --border-glow: 0 0 10px var(--primary-color);
+} */
+
+
+
+
+
+.settings-container {
+    display: flex;
+}
+
+.settingRight {
+    flex: 9;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(106, 0, 244, 0.8), rgba(32, 0, 58, 0.8));
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--border-glow);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 600px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--accent-color);
+    text-shadow: var(--border-glow);
+    margin-bottom: 20px;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input,
+textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: var(--border-glow);
+}
+
+.file-upload input {
+    border: none;
+}
+
+.btn-setting {
+    background: var(--primary-color);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-setting:hover {
+    background: var(--accent-color);
+    box-shadow: var(--border-glow);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #ff004c;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff008c;
+    box-shadow: 0 0 15px #ff008c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .settings-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

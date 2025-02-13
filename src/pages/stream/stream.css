@@ -1,0 +1,78 @@
+/* Streaming Page Styles */
+.streaming-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.video-player {
+  width: 100%;
+  height: 500px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.episodes-list {
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.episodes-list h2 {
+  margin-bottom: 15px;
+}
+
+.episode-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.episode-item:hover {
+  background: #292929;
+}
+
+.comments-section {
+  margin-top: 30px;
+  padding: 15px;
+  background: #1f1f1f;
+  border-radius: 10px;
+}
+
+.comment {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.comment-body {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .streaming-container {
+    grid-template-columns: 1fr;
+  }
+
+  .video-player {
+    height: 300px;
+  }
+}

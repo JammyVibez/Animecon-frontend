@@ -1,0 +1,143 @@
+.explore {
+    display: flex;
+}
+
+.exploreRight {
+    flex: 9;
+}
+
+
+/* General Styles */
+.explore-page {
+    padding: 30px;
+    color: black;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Communities Section */
+  .communities-section .community-grid {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .community-card {
+    background: #f2f2f2;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+  
+  .community-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .community-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .community-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    
+  }
+  
+  /* Anime Recommendations Section */
+  .recommendations-section .anime-recommendations {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .anime-card {
+    background: #f2f2f2;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+  
+  .anime-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .anime-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .anime-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    
+  }
+  
+  /* Events Section */
+  .events-section .event-card {
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .event-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+   
+  }
+  
+  .event-card p {
+    font-size: 1rem;
+    color: #8b8383;
+  }
+  
+  /* Trending Topics Section */
+  .trending-topics .topics-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .trending-topics .topics-list li {
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    color: #ff6b81;
+    font-size: 1rem;
+    display: inline-block;
+    width: auto;
+  }
+  .btn {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e7abeb;
+    color: white;
+  }
+
+  

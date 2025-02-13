@@ -1,0 +1,156 @@
+.addfriend {
+    display: flex;
+}
+
+.addfriendRight {
+    flex: 9;
+    padding: 20px;
+}
+
+
+/* addfriend.css */
+
+
+
+.add-friend-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff6b6b;
+  text-shadow: 2px 2px 10px rgba(255, 107, 107, 0.8);
+  margin-bottom: 20px;
+}
+
+.friend-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.friend-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.friend-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.5);
+}
+
+.friend-card::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ff6b6b, #ffcc00);
+  top: 0;
+  left: 0;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #ff6b6b;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.friend-card:hover .profile-pic {
+  transform: scale(1.1);
+}
+
+.friend-info {
+  margin-top: 10px;
+}
+
+.friend-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.friend-bio {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.profileLevel,
+.profileRank,
+.profileFollower {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+  color: #ffcc00;
+}
+
+.friend-actions {
+  margin-top: 10px;
+}
+
+.btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #ff4757;
+  transform: scale(1.05);
+}
+
+.view-btn {
+  background: #ffcc00;
+  color: #1a1a2e;
+  margin-left: 10px;
+}
+
+.view-btn:hover {
+  background: #ffaa00;
+}
+
+.view-more-btn {
+  margin-top: 20px;
+  background: #0f3460;
+  border: 2px solid #ff6b6b;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .friend-list {
+    grid-template-columns: 1fr;
+  }
+}

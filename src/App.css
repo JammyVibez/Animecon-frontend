@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Cyberpunk Neon Light Theme */
+[data-theme="light"] {
+    --primary-bg: #1a1a2e; /* Dark navy blue */
+    --secondary-bg: #16213e; /* Slightly lighter navy */
+    --primary-text: #e6e6fa; /* Soft lavender */
+    --secondary-text: #cfcfcf; /* Light gray */
+    --card-bg: #0f3460; /* Deep cyan */
+    --accent: #ff00ff; /* Bright neon pink */
+    --border-color: #ff00ff; /* Neon pink for accents */
+}
+
+/* Cyberpunk Neon Dark Theme */
+[data-theme="dark"] {
+    --primary-bg: #050505; /* Deep black */
+    --secondary-bg: #0d0d0d; /* Slightly lighter black */
+    --primary-text: #00eaff; /* Neon cyan text */
+    --secondary-text: #ff00ff; /* Neon pink */
+    --card-bg: #1a1a1a; /* Dark grayish background */
+    --accent: #ff007f; /* Hot neon magenta */
+    --border-color: #00eaff; /* Neon cyan border */
+}
+
+/* Glowing Effects */
+button, .btn-setting, .form-group input, .form-group textarea {
+    transition: all 0.3s ease-in-out;
+    border: 2px solid var(--accent);
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+}
+
+.themeToggleBtn {
+    width: 50px;
+    height: 50px;
+}
+
+button:hover, .btn-setting:hover, .form-group input:hover, .form-group textarea:hover {
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
+    transform: scale(1.05);
+}
+
+/* Neon Text Glow */
+h1, label, .title, .logo, span {
+    text-shadow: 0 0 5px var(--accent), 0 0 15px var(--accent);
+}
+.postText {
+    color: var(--primary-text);
+}
+
+/* Smooth Card Hover */
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 10px var(--border-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--border-color), 0 0 40px var(--border-color);
+}
+
+
+.homeContainer {
+    width: 100%;
+}
+.homeContainer, .profile, .settings-container, .addfriend {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+}
+
+/* Profile */
+.profileCoverImg, .profileUserImg {
+    border-color: var(--secondary-bg);
+}
+
+.profileInfoName {
+    color: var(--primary-text);
+}
+
+.tagName {
+    color: var(--secondary-text);
+}
+
+/* Messenger */
+.messenger, .chatMenu, .chatBox, .chatOnline {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    box-shadow: 0px 0px 15px -10px var(--border-color);
+}
+
+.chatMenuInput, .chatMessageInput {
+    background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+}
+
+.chatSubmitButton {
+    background-color: var(--accent);
+}
+
+.noConversationText {
+    color: var(--secondary-text);
+}
+
+/* Friend List */
+.friend-card {
+    background-color: var(--card-bg);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.friend-name {
+    color: var(--primary-text);
+}
+
+.friend-bio {
+    color: var(--secondary-text);
+}
+
+.view-more-btn {
+    background-color: var(--accent);
+}
+
+/* Share Component */
+.share {
+    background-color: var(--card-bg);
+    box-shadow: 0px 0px 16px -8px var(--border-color);
+}
+
+.shareInput {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+}
+
+.shareButton {
+    background-color: var(--accent);
+}
+
+/* Modal */
+.modalContent {
+    background-color: var(--card-bg);
+    color: var(--primary-text);
+}
+
+.modalButton:hover {
+    background-color: var(--border-color);
+}
+
+/* Post */
+.post {
+    background-color: var(--card-bg);
+    box-shadow: 0px 0px 16px -8px var(--border-color);
+}
+
+.postUsername {
+    color: var(--primary-text);
+}
+
+.postDate {
+    color: var(--secondary-text);
+}
+
+.watermark {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.commentsSection {
+    background-color: var(--secondary-bg);
+}
+
+
+
+
+
+.settings-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.settingRight {
+    flex: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(106, 0, 244, 0.8), rgba(32, 0, 58, 0.8));
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--border-glow);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 600px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--accent-color);
+    text-shadow: var(--border-glow);
+    margin-bottom: 20px;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input,
+textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: var(--border-glow);
+}
+
+.file-upload input {
+    border: none;
+}
+
+.btn-setting {
+    background: var(--primary-color);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-setting:hover {
+    background: var(--accent-color);
+    box-shadow: var(--border-glow);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #ff004c;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff008c;
+    box-shadow: 0 0 15px #ff008c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .settings-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .homeRightBar {
+    display:none;
+}
+
+
+.homeContainer {
+    width: auto;
+}
+
+.rightbarMobile {
+    display: block;
+}
+.rightbarFollowings {
+    display: none;
+}
+}
+
+@media (max-width: 468px) {
+    .homeContainer {
+        width: auto;
+    }
+
+    .topbarContainer {
+         display: flex;
+    }
+
+    .searchbar {
+        width: auto;
+    }
+    
+}
+
+

@@ -1,0 +1,16 @@
+.carousel .carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .carousel .carousel-title {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  

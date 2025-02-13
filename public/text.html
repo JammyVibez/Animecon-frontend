@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebGL Test</title>
+</head>
+<body>
+  <canvas id="glCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById("glCanvas");
+    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+
+    if (!gl) {
+      alert("WebGL is not supported on your device.");
+    } else {
+      alert("WebGL is working!");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+.sidebar {
+    flex: 3;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+    position: sticky;
+    top: 50px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 187, 192);
+}
+
+.sidebarWrapper {
+    padding: 20px;
+}
+
+.sidebarList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebarListItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebarIcon {
+    margin-right: 15px;
+}
+
+.sidebarButton {
+    width: 150px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.sidebarHr {
+    margin: 20px 0;
+}
+
+.sidebarFriendList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+  
+  
+  /* Sidebar Default */
+/* .sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #0d0d0d;
+  color: white;
+  top: 5px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  box-shadow: 2px 0 10px rgba(255, 0, 255, 0.3);
+} */
+
+/* Sidebar for Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 20px;
+  }
+
+  .sidebarListItemText {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .sidebar:hover {
+    width: 200px;
+  }
+
+  .sidebar:hover .sidebarListItemText {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Sidebar List */
+.sidebarList {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebarListItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebarListItem:hover {
+  background: rgba(255, 0, 255, 0.2);
+  box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+}
+
+/* Sidebar Icons */
+.sidebarIcon {
+  font-size: 24px;
+  color: #ff00ff;
+  transition: transform 0.3s ease;
+}
+
+.sidebarListItem:hover .sidebarIcon {
+  transform: scale(1.2);
+}
+
+/* Sidebar Text */
+.sidebarListItemText {
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.sidebarListItem:hover .sidebarListItemText {
+  color: #ff00ff;
+}
+
+/* Hide "Show More" & Friends List on Mobile */
+@media (max-width: 768px) {
+  .sidebarButton,
+  .sidebarFriendList {
+    display: none;
+  }
+}
+
+/* Sidebar Toggle Button */
+.sidebarToggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  margin: 15px;
+}

@@ -1,0 +1,103 @@
+.update {
+    display: flex;
+}
+
+.updateRight {
+    flex: 9;
+}
+
+/* General Styling */
+.updates-page {
+    padding: 30px;
+    color: #fff;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  /* Updates Container */
+  .updates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Update Card */
+  .update-card {
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    color: black;
+  }
+  
+  .update-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .update-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ff6b81;
+  }
+  
+  .update-content {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  /* Media Container */
+  .media-container {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .media-container img,
+  .media-container video {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  /* Update Footer */
+  .update-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  
+  .timestamp {
+    color: #888;
+  }
+  
+  .interactions button {
+    background: #333;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    transition: background 0.3s;
+  }
+  
+  .interactions button:hover {
+    background: #444;
+  }
+  
+  .like-btn {
+    color: #4cd137;
+  }
+  
+  .comment-btn {
+    color: #3498db;
+  }
+  

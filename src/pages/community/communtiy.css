@@ -1,0 +1,111 @@
+.community-container {
+    min-height: 100vh;
+    /* background: linear-gradient(to bottom, #e1e1ec, #0f3460); */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 3D Canvas Background */
+  .canvas-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .community-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .community-description {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 30px;
+  }
+  
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 800px;
+  }
+  
+  @media (min-width: 768px) {
+    .community-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .community-card {
+    background: #a7b1cc;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .countdown-container {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  @media (min-width: 768px) {
+    .buttons-container {
+      flex-direction: row;
+    }
+  }
+  
+  .discord-button, .register-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.8);
+  }
+  
+  .discord-button {
+    background-color: #5865f2;
+  }
+  
+  .discord-button:hover {
+    background-color: #4752c4;
+  }
+  
+  .register-button {
+    background-color: #8e44ad;
+  }
+  
+  .register-button:hover {
+    background-color: #732d91;
+  }
+  

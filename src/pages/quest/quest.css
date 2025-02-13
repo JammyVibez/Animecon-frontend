@@ -1,0 +1,56 @@
+.quest {
+    display: flex;
+}
+.questRight {
+    flex: 9;
+}
+
+.quest-page {
+    padding: 30px;
+    
+    color: black;
+    text-align: center;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .quest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .quest-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .quest-card h2 {
+    font-size: 1.5rem;
+    color: black;
+  }
+  
+  .quest-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .claim-btn {
+    display: flex;
+    background: #4cd137;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .claim-btn:hover {
+    background: #44bd32;
+  }
+  

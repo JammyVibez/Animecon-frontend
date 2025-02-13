@@ -1,0 +1,42 @@
+/* Smooth background animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #3f0071, #000);
+    animation: animateBg 10s infinite alternate ease-in-out;
+    z-index: -1;
+  }
+  
+  /* Animation for background */
+  @keyframes animateBg {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  
+  /* Countdown Box */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .countdown-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

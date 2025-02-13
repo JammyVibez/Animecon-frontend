@@ -1,0 +1,89 @@
+.event {
+    display: flex;
+}
+.eventRight {
+    flex: 9;
+}
+
+.event-page {
+    padding: 20px;
+    max-width: 1200px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.event-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: var(--bg-body-500);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.event-date, .event-time, .event-location {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.event-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.event-actions .btn {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.event-actions .btn.join-event {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.event-actions .btn.learn-more {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.event-actions .btn:hover {
+    opacity: 0.9;
+}

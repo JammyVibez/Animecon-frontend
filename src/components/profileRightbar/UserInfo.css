@@ -1,0 +1,156 @@
+.rightbar {
+    flex: 3.5;
+}
+
+.rightbarWrapper {
+    padding: 20px 20px 0 0;
+}
+
+.postUserContainer {
+    display: flex;
+    align-items: center;
+}
+
+.postUserImg {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.postUserText {
+    font-weight: 300;
+    font-style: 15px;
+}
+
+.flipsButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px
+}
+.flipsButton {
+    padding: 10px;
+}
+
+
+
+.rightbarTitle {
+    margin-bottom: 20px;
+}
+
+.rightbarFriendList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.rightbarTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+
+
+.rightbarInfo {
+    margin-bottom: 30px;
+}
+
+
+
+
+.rightbarInfoItem {
+    margin-bottom: 20px;
+}
+
+
+.profileInfoFollowers,
+.profileInfoFollowing,
+.profileInfoRank,
+.profileInfoLevel,
+.profileInfoGenre {
+    font-weight: 500;
+    margin-right: 15px;
+    
+}
+
+.rightbarInfoValue {
+    padding: 10px;
+    font-weight: 300;
+    color: #555;
+}
+
+
+.rightbarFollowings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.rightbarFollowing {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.rightbarFollowingImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.rightbarFollowingName {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.rightbarFollowButton {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #e7abeb;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    padding: 6px;
+    color: white;
+}
+
+.rightbarFollowButton:hover {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.rightbarFollowButton :focus{
+    outline: none;
+}
+
+.messageButton {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .messageButton:hover {
+    background-color: #45a049;
+  }
+    
+  .badge-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .badge-icon {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+  }
