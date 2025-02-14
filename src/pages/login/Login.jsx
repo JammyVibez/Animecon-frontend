@@ -13,7 +13,15 @@ export default function Login() {
     const email = useRef()
     const password = useRef()
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
+    const userId = user._id;
 
+
+    useEffect(() => {
+        if (user) {
+          console.log("User logged in:", user);
+          console.log("User ID:", user?.id); // Debugging
+        }
+      }, [user]);
     console.log(user)
     const handleClick = async (e) => {
         e.preventDefault();

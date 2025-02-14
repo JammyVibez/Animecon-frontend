@@ -12,6 +12,8 @@ const SettingsPage = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [coverPicture, setCoverPicture] = useState(null);
   const [loading, setLoading] = useState(false);
+  const userId = user._id;
+
 
     const handleLogout = () => {
       localStorage.removeItem("user"); // Remove user data
