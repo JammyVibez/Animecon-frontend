@@ -16,7 +16,7 @@ import AnimeReactions from "../../components/reations/AnimeReaction";
 import EmojiPicker from "emoji-picker-react";
 
 export default function Post({ post, bgColor }) {
-
+  const API = process.env.REACT_APP_API_URL;
   // const [like, setLike] = useState(post.likes.length);
   // const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
