@@ -54,7 +54,7 @@ function App() {
 
 function RedirectToWebsite() {
   useEffect(() => {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "https://unime.vercel.app/";
   }, []);
 
   return null;
