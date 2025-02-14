@@ -32,7 +32,8 @@ export default function Post({ post, bgColor }) {
   const [isSharing, setIsSharing] = useState(false);
   const [reaction, setReaction] = useState(null);
   const [isFollowing, setIsFollowing] = useState(false);
-  const userId = user._id;
+  const userId = user?.id || user?._id || null;
+
 
 
 

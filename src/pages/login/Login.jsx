@@ -13,7 +13,8 @@ export default function Login() {
     const email = useRef()
     const password = useRef()
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
-    const userId = user._id;
+    const userId = user ? user._id : null;
+    
 
 
     const handleClick = async (e) => {
