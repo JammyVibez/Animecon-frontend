@@ -15,10 +15,15 @@ export default function Login() {
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
 
     console.log(user)
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
-        loginCall({ email: email.current.value, password: password.current.value }, dispatch)
-    }
+        console.log("Logging in with:", email.current.value, password.current.value);
+        await loginCall(
+            { email: email.current.value, password: password.current.value },
+            dispatch
+        );
+    };
+    
     return (
         <div className="login">
             <div className="loginWrapper">
