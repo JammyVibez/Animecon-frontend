@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Users } from "../../dummyData";
 import Friend from "../friend/Friend";
 import {
-  Menu, Close, RssFeed, Cached, HelpOutline, Event, ConnectedTv, WorkOutline, Group, WatchLater,
+  Menu, Close, QuestionAnswer, RssFeed, Article, ShortText, Cached, HelpOutline, Event, ConnectedTv, WorkOutline, Group, WatchLater,
 } from "@mui/icons-material";
 import "./sidebar.css";
 
@@ -43,12 +43,30 @@ export default function Sidebar() {
             <span className="sidebarListItemText">Jobs</span>
           </li>
           </Link>
-          {/* <Link to="/find" style={{ color: "inherit", textDecoration: "none" }}>
+          <Link to="/quest" style={{ color: "inherit", textDecoration: "none" }}>
+          <li className="sidebarListItem">
+            <QuestionAnswer className="sidebarIcon" />
+            <span className="sidebarListItemText">Quest</span>
+          </li>
+          </Link>
+          <Link to="/animecon-news" style={{ color: "inherit", textDecoration: "none" }}>
+          <li className="sidebarListItem">
+            <Article className="sidebarIcon" />
+            <span className="sidebarListItemText">News</span>
+          </li>
+          </Link>
+          <Link to="/find" style={{ color: "inherit", textDecoration: "none" }}>
+          <li className="sidebarListItem">
+            <ShortText className="sidebarIcon" />
+            <span className="sidebarListItemText">Stories</span>
+          </li>
+          </Link>
+          <Link to="/Question" style={{ color: "inherit", textDecoration: "none" }}>
           <li className="sidebarListItem">
             <HelpOutline className="sidebarIcon" />
             <span className="sidebarListItemText">Question</span>
           </li>
-          </Link> */}
+          </Link>
           <Link to={"/redirect-to=website"}>
             <li className="sidebarListItem">
               <ConnectedTv className="sidebarIcon" />
