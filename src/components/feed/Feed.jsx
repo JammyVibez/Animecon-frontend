@@ -15,6 +15,7 @@ function generateRandomColor() {
 }
 
 export default function Feed({ username }) {
+  const API = process.env.REACT_APP_API_URL;
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const [bgColor, setBgColor] = useState(generateRandomColor());
@@ -32,12 +33,12 @@ export default function Feed({ username }) {
         }
 
         const postUrl = username
-          ? `/posts/profile/${username}?page=${page}`
-          : `/posts/timeline/${user?._id}?page=${page}`;
+          ? `${API}/api/posts/profile/${username}?page=${page}`
+          : `${API}/api/posts/timeline/${user?._id}?page=${page}`;
 
         const [res, randomRes] = await Promise.all([
           axios.get(postUrl, { headers: { "Cache-Control": "no-cache" } }),
-          axios.get(`/posts/random`, { headers: { "Cache-Control": "no-cache" } }),
+          axios.get(`${API}/api/posts/random`, { headers: { "Cache-Control": "no-cache" } }),
         ]);
 
         console.log("API Response:", res.data);

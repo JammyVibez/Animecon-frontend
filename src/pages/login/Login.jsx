@@ -16,13 +16,6 @@ export default function Login() {
     const userId = user._id;
 
 
-    useEffect(() => {
-        if (user) {
-          console.log("User logged in:", user);
-          console.log("User ID:", user?.id); // Debugging
-        }
-      }, [user]);
-    console.log(user)
     const handleClick = async (e) => {
         e.preventDefault();
         console.log("Logging in with:", email.current.value, password.current.value);

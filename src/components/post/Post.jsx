@@ -16,6 +16,7 @@ import AnimeReactions from "../../components/reations/AnimeReaction";
 import EmojiPicker from "emoji-picker-react";
 
 export default function Post({ post, bgColor }) {
+
   // const [like, setLike] = useState(post.likes.length);
   // const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
@@ -134,7 +135,7 @@ export default function Post({ post, bgColor }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`/users`, {
+        const res = await axios.get(`${API}/api/users`, {
           params: { userId: post.userId }
         });
         setUser(res.data);
@@ -157,7 +158,7 @@ export default function Post({ post, bgColor }) {
 
   const handleDeletePost = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`, {
+      await axios.delete(`${API}/api/posts/${post._id}`, {
         data: { userId: currentUser._id }
       });
       alert("Post deleted successfully");
@@ -182,7 +183,7 @@ export default function Post({ post, bgColor }) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`/posts/${post._id}/comment`);
+        const res = await axios.get(`${API}/api/posts/${post._id}/comment`);
         setComments(res.data);
       } catch (err) {
         console.error("Error fetching comments:", err);
@@ -197,7 +198,7 @@ export default function Post({ post, bgColor }) {
       return;
     }
     try {
-      const res = await axios.post(`/posts/${post._id}/comment`, {
+      const res = await axios.post(`${API}/api/posts/${post._id}/comment`, {
         userId: currentUser._id,
         text: newComment
       });
@@ -231,7 +232,7 @@ export default function Post({ post, bgColor }) {
 
       // Update likes in the database
       const res = await axios.put(
-        `/posts/${post._id}/comment/${commentId}/like`,
+        `${API}/api/posts/${post._id}/comment/${commentId}/like`,
         {
           userId: currentUser._id
         }
@@ -248,7 +249,7 @@ export default function Post({ post, bgColor }) {
 
   const handleRatingSubmit = async (rating) => {
     try {
-      const res = await axios.put(`/posts/${post._id}/rate`, {
+      const res = await axios.put(`${API}/api/posts/${post._id}/rate`, {
         userId: currentUser._id,
         rating
       });
