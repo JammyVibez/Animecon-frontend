@@ -29,6 +29,15 @@ export const loginCall = async (userCredential, dispatch) => {
     
     const res = await axios.post(`${API}/api/auth/login`, userCredential);
     console.log("Login response:", res.data);
+  
+  // Debugging logs
+  console.log("Full API response:", res);
+  console.log("API response data:", res.data);
+
+  if (!res.data || !res.data.id) {
+    throw new Error("Invalid response: Missing user ID");
+  }
+
 
     // Ensure _id is used properly
     const userData = { ...res.data, id: res.data._id }; 
