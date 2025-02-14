@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ProfileRightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const API = process.env.REACT_APP_API_URL;
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -19,19 +20,19 @@ export default function ProfileRightbar({ user }) {
 
   const handleStartChat = async () => {
     try {
-      const res = await axios.get(`/conversations/${user._id}`);
+      const res = await axios.get(`${API}/api/conversations/${user._id}`);
       const existingConversation = res.data.find((c) =>
         c.members.includes(user._id)
       );
 
       if (existingConversation) {
-        navigate(`/messenger?conversationId=${existingConversation._id}`);
+        navigate(`${API}/api/messenger?conversationId=${existingConversation._id}`);
       } else {
         const newConversation = await axios.post("/conversations", {
           senderId: currentUser._id,
           receiverId: user._id
         });
-        navigate(`/messenger?conversationId=${newConversation.data._id}`);
+        navigate(`${API}/api/messenger?conversationId=${newConversation.data._id}`);
       }
     } catch (err) {
       console.error("Error starting conversation:", err);
@@ -46,7 +47,7 @@ export default function ProfileRightbar({ user }) {
     if (user?._id) {
       const getFriends = async () => {
         try {
-          const res = await axios.get(`/users/friends/${user._id}`);
+          const res = await axios.get(`${API}/api/users/friends/${user._id}`);
           setFriends(res.data);
         } catch (err) {
           console.error("Failed to fetch friends:", err);
@@ -59,12 +60,12 @@ export default function ProfileRightbar({ user }) {
   const followHandler = async () => {
     try {
       if (followed) {
-        await axios.put(`/users/${user._id}/unfollow`, {
+        await axios.put(`${API}/api/users/${user._id}/unfollow`, {
           userId: currentUser._id
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
-        await axios.put(`/users/${user._id}/follow`, {
+        await axios.put(`${API}/api/users/${user._id}/follow`, {
           userId: currentUser._id
         });
         dispatch({ type: "FOLLOW", payload: user._id });
@@ -93,20 +94,7 @@ export default function ProfileRightbar({ user }) {
             User Friends
           </span>
         </div>
-      
-        {user?.username && user.username !== currentUser?.username && (
-          <button className="messageButton" onClick={handleStartChat}>
-            Chat
-          </button>
-        )}
-
-        {user?.username && user.username !== currentUser?.username && (
-          <button className="rightbarFollowButton" onClick={followHandler}>
-            {followed ? "Unfollow" : "Follow"}
-            {followed ? <Remove /> : <Add />}
-          </button>
-        )}
-
+    
        
 
         <div className="rightbarContent">
@@ -157,6 +145,18 @@ export default function ProfileRightbar({ user }) {
             </div>
           )}
         </div>
+        {user?.username && user.username !== currentUser?.username && (
+          <button className="messageButton" onClick={handleStartChat}>
+            Chat
+          </button>
+        )}
+
+        {user?.username && user.username !== currentUser?.username && (
+          <button className="rightbarFollowButton" onClick={followHandler}>
+            {followed ? "Unfollow" : "Follow"}
+            {followed ? <Remove /> : <Add />}
+          </button>
+        )}
       </div>
     </div>
   );

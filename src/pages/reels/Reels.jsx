@@ -24,6 +24,7 @@ export default function Reel({ post }) {
 
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const API = process.env.REACT_APP_API_URL;
   const { user: currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   // Check if the current user already liked the post
@@ -62,7 +63,7 @@ export default function Reel({ post }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`/users`, { params: { userId: post.userId } });
+        const res = await axios.get(`${API}/api/users`, { params: { userId: post.userId } });
         setUser(res.data);
       } catch (err) {
         console.error("Error fetching user:", err);
@@ -75,7 +76,7 @@ export default function Reel({ post }) {
 
   const likeHandler = async () => {
     try {
-      await axios.put(`/posts/${post._id}/like`, { userId: currentUser._id });
+      await axios.put(`${API}/api/posts/${post._id}/like`, { userId: currentUser._id });
       setLike(isLiked ? like - 1 : like + 1);
       setIsLiked(!isLiked);
     } catch (err) {
@@ -85,7 +86,7 @@ export default function Reel({ post }) {
 
   const handleDeletePost = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`, { data: { userId: currentUser._id } });
+      await axios.delete(`${API}/api/posts/${post._id}`, { data: { userId: currentUser._id } });
       alert("Post deleted successfully");
       window.location.reload();
     } catch (err) {
@@ -108,7 +109,7 @@ export default function Reel({ post }) {
 
   const fetchComments = async () => {
     try {
-      const res = await axios.get(`/posts/${post._id}/comment`);
+      const res = await axios.get(`${API}/api/posts/${post._id}/comment`);
       setComments(res.data);
     } catch (err) {
       console.error("Error fetching comments:", err);
@@ -123,7 +124,7 @@ export default function Reel({ post }) {
       return;
     }
     try {
-      const res = await axios.post(`/posts/${post._id}/comment`, {
+      const res = await axios.post(`${API}/api/posts/${post._id}/comment`, {
         userId: currentUser._id,
         text: newComment,
       });
@@ -156,7 +157,7 @@ export default function Reel({ post }) {
       }
 
       // Update likes in the database
-      const res = await axios.put(`/posts/${post._id}/comment/${commentId}/like`, {
+      const res = await axios.put(`${API}/api/posts/${post._id}/comment/${commentId}/like`, {
         userId: currentUser._id,
       });
 
@@ -173,7 +174,7 @@ export default function Reel({ post }) {
 
   const handleRatingSubmit = async (rating) => {
     try {
-      const res = await axios.put(`/posts/${post._id}/rate`, {
+      const res = await axios.put(`${API}/api/posts/${post._id}/rate`, {
         userId: currentUser._id,
         rating,
       });

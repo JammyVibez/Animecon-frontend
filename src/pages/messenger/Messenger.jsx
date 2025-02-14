@@ -9,6 +9,7 @@ import axios from "axios";
 import { io } from "socket.io-client";
 import { PermMedia, EmojiEmotions } from "@mui/icons-material";
 import EmojiPicker from "emoji-picker-react";
+const API = process.env.REACT_APP_API_URL;
 
 export default function Messenger() {
   const [conversations, setConversations] = useState([]);
@@ -59,7 +60,7 @@ export default function Messenger() {
 
     const getConversations = async () => {
       try {
-        const res = await axios.get("/conversations/" + user._id);
+        const res = await axios.get(`${API}/api/conversations/` + user._id);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -72,7 +73,7 @@ export default function Messenger() {
     const getMessages = async () => {
       if (!currentChat) return;
       try {
-        const res = await axios.get("/messages/" + currentChat._id);
+        const res = await axios.get(`${API}/api/messages/` + currentChat._id);
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -106,7 +107,7 @@ export default function Messenger() {
     });
 
     try {
-      const res = await axios.post("/messages", formData, {
+      const res = await axios.post(`${API}/api/messages`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setMessages([...messages, res.data]);

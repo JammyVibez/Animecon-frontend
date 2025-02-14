@@ -6,6 +6,7 @@ import axios from 'axios';
 import "./setting.css"
 
 const SettingsPage = () => {
+  const API = process.env.REACT_APP_API_URL;
   const { user, setUser } = useContext(AuthContext); 
   const [userData, setUserData] = useState(user);
   const [profilePicture, setProfilePicture] = useState(null);
@@ -68,7 +69,7 @@ const SettingsPage = () => {
         formData.append("profilePicture", profilePicture);
 
         const response = await axios.put(
-          `/users/update-profilePicture/${userId}`,
+          `${API}/api/users/update-profilePicture/${userId}`,
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -83,7 +84,7 @@ const SettingsPage = () => {
         formData.append("coverPicture", coverPicture);
 
         const response = await axios.put(
-          `/users/update-coverPicture/${userId}`,
+          `${API}/api/users/update-coverPicture/${userId}`,
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -94,7 +95,7 @@ const SettingsPage = () => {
 
 
       // Update other fields
-      const response = await axios.put(`/users/${userId}`, userData);
+      const response = await axios.put(`${API}/api/users/${userId}`, userData);
       setUserData(response.data);
       alert('Profile updated successfully!');
     } catch (err) {

@@ -1,11 +1,12 @@
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL;
 
 export const loginCall = async (userCredential, dispatch) => {
   dispatch({ type: "LOGIN_START" });
   try {
     console.log("Attempting login with credentials:", userCredential);
-    const res = await axios.post("/auth/login", userCredential);
+    const res = await axios.post(`${API}/api/auth/login`, userCredential);
     console.log("Login response:", res.data);
     localStorage.setItem("user", JSON.stringify(res.data)); // Save user to localStorage
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });

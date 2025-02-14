@@ -11,6 +11,7 @@ export default function Topbar() {
   const { user } = useContext(AuthContext);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const API = process.env.REACT_APP_API_URL;
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -23,7 +24,7 @@ export default function Topbar() {
       return;
     }
     try {
-      const res = await fetch(`/search?q=${e.target.value}`);
+      const res = await fetch(`${API}/api/search?q=${e.target.value}`);
       const data = await res.json();
       setSearchResults(data);
       setShowResults(true);

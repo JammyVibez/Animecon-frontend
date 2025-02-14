@@ -173,90 +173,90 @@
 //         </form>
 //       </div>
 
-//       {/* Review Modal */}
-//       {isReviewModalOpen && (
-//         <div className="modal">
-//           <div className="modalContent">
-//             <h3>Review Your Post</h3>
-//             {file && (
-//               <div className="modalPreview">
-//                 {file.type.startsWith("image/") ? (
-//                   <img
-//                     src={URL.createObjectURL(file)}
-//                     alt="Preview"
-//                     className="modalImage"
-//                   />
-//                 ) : (
-//                   <video
-//                     src={URL.createObjectURL(file)}
-//                     controls
-//                     className="modalVideo"
-//                   ></video>
-//                 )}
-//               </div>
-//             )}
-//             <div className="modalActions">
-//               <button className="modalButton" onClick={submitHandler}>
-//                 Post
-//               </button>
-//               <button
-//                 className="modalButton"
-//                 onClick={() => setReviewModalOpen(false)}
-//               >
-//                 Edit
-//               </button>
-//               <button className="modalButton" onClick={closeModal}>
-//                 Cancel
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       )}
+    //   {/* Review Modal */}
+    //   {isReviewModalOpen && (
+    //     <div className="modal">
+    //       <div className="modalContent">
+    //         <h3>Review Your Post</h3>
+    //         {file && (
+    //           <div className="modalPreview">
+    //             {file.type.startsWith("image/") ? (
+    //               <img
+    //                 src={URL.createObjectURL(file)}
+    //                 alt="Preview"
+    //                 className="modalImage"
+    //               />
+    //             ) : (
+    //               <video
+    //                 src={URL.createObjectURL(file)}
+    //                 controls
+    //                 className="modalVideo"
+    //               ></video>
+    //             )}
+    //           </div>
+    //         )}
+    //         <div className="modalActions">
+    //           <button className="modalButton" onClick={submitHandler}>
+    //             Post
+    //           </button>
+    //           <button
+    //             className="modalButton"
+    //             onClick={() => setReviewModalOpen(false)}
+    //           >
+    //             Edit
+    //           </button>
+    //           <button className="modalButton" onClick={closeModal}>
+    //             Cancel
+    //           </button>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   )}
 
-//       {/* Location Modal */}
-//       {isLocationModalOpen && (
-//         <div className="modal">
-//           <div className="modalContent">
-//             <h3>Choose Location</h3>
-//             {locations.map((loc) => (
-//               <div key={loc}>
-//                 <input
-//                   type="radio"
-//                   id={`location-${loc}`}
-//                   value={loc}
-//                   checked={location === loc}
-//                   onChange={(e) => setLocation(e.target.value)}
-//                 />
-//                 <label htmlFor={`location-${loc}`}>{loc}</label>
-//               </div>
-//             ))}
-//             <button onClick={() => setLocationModalOpen(false)}>Done</button>
-//           </div>
-//         </div>
-//       )}
+    //   {/* Location Modal */}
+    //   {isLocationModalOpen && (
+    //     <div className="modal">
+    //       <div className="modalContent">
+    //         <h3>Choose Location</h3>
+    //         {locations.map((loc) => (
+    //           <div key={loc}>
+    //             <input
+    //               type="radio"
+    //               id={`location-${loc}`}
+    //               value={loc}
+    //               checked={location === loc}
+    //               onChange={(e) => setLocation(e.target.value)}
+    //             />
+    //             <label htmlFor={`location-${loc}`}>{loc}</label>
+    //           </div>
+    //         ))}
+    //         <button onClick={() => setLocationModalOpen(false)}>Done</button>
+    //       </div>
+    //     </div>
+    //   )}
 
-//       {/* Genre Modal */}
-//       {isGenreModalOpen && (
-//         <div className="modal">
-//           <div className="modalContent">
-//             <h3>Choose Genre</h3>
-//             {genres.map((g) => (
-//               <div key={g}>
-//                 <input
-//                   type="radio"
-//                   id={`genre-${g}`}
-//                   value={g}
-//                   checked={genre === g}
-//                   onChange={(e) => setGenre(e.target.value)}
-//                 />
-//                 <label htmlFor={`genre-${g}`}>{g}</label>
-//               </div>
-//             ))}
-//             <button onClick={() => setGenreModalOpen(false)}>Done</button>
-//           </div>
-//         </div>
-//       )}
-//     </div>
+    //   {/* Genre Modal */}
+    //   {isGenreModalOpen && (
+    //     <div className="modal">
+    //       <div className="modalContent">
+    //         <h3>Choose Genre</h3>
+    //         {genres.map((g) => (
+    //           <div key={g}>
+    //             <input
+    //               type="radio"
+    //               id={`genre-${g}`}
+    //               value={g}
+    //               checked={genre === g}
+    //               onChange={(e) => setGenre(e.target.value)}
+    //             />
+    //             <label htmlFor={`genre-${g}`}>{g}</label>
+    //           </div>
+    //         ))}
+    //         <button onClick={() => setGenreModalOpen(false)}>Done</button>
+    //       </div>
+    //     </div>
+    //   )}
+    // </div>
 //   );
 // }
 
@@ -274,6 +274,7 @@ import axios from "axios";
 export default function Share() {
   const { user } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const API = process.env.REACT_APP_API_URL;
   const desc = useRef();
   const [file, setFile] = useState(null);
   const [isReviewModalOpen, setReviewModalOpen] = useState(false);
@@ -301,7 +302,7 @@ export default function Share() {
     }
 
     try {
-      await axios.post("/posts", data, {
+      await axios.post(`${API}/api/posts`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -383,6 +384,89 @@ export default function Share() {
         {/* Loading bar */}
         {isLoading && <div className="loadingBar">Loading...</div>}
       </div>
+            {/* Review Modal */}
+            {isReviewModalOpen && (
+        <div className="modal">
+          <div className="modalContent">
+            <h3>Review Your Post</h3>
+            {file && (
+              <div className="modalPreview">
+                {file.type.startsWith("image/") ? (
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt="Preview"
+                    className="modalImage"
+                  />
+                ) : (
+                  <video
+                    src={URL.createObjectURL(file)}
+                    controls
+                    className="modalVideo"
+                  ></video>
+                )}
+              </div>
+            )}
+            <div className="modalActions">
+              <button className="modalButton" onClick={submitHandler}>
+                Post
+              </button>
+              <button
+                className="modalButton"
+                onClick={() => setReviewModalOpen(false)}
+              >
+                Edit
+              </button>
+              <button className="modalButton" onClick={closeModal}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Location Modal */}
+      {isLocationModalOpen && (
+        <div className="modal">
+          <div className="modalContent">
+            <h3>Choose Location</h3>
+            {locations.map((loc) => (
+              <div key={loc}>
+                <input
+                  type="radio"
+                  id={`location-${loc}`}
+                  value={loc}
+                  checked={location === loc}
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+                <label htmlFor={`location-${loc}`}>{loc}</label>
+              </div>
+            ))}
+            <button onClick={() => setLocationModalOpen(false)}>Done</button>
+          </div>
+        </div>
+      )}
+
+      {/* Genre Modal */}
+      {isGenreModalOpen && (
+        <div className="modal">
+          <div className="modalContent">
+            <h3>Choose Genre</h3>
+            {genres.map((g) => (
+              <div key={g}>
+                <input
+                  type="radio"
+                  id={`genre-${g}`}
+                  value={g}
+                  checked={genre === g}
+                  onChange={(e) => setGenre(e.target.value)}
+                />
+                <label htmlFor={`genre-${g}`}>{g}</label>
+              </div>
+            ))}
+            <button onClick={() => setGenreModalOpen(false)}>Done</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

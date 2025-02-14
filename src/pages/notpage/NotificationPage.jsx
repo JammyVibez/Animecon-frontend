@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 
 const dummyNotifications = [
-  { id: 1, title: "Welcome!", message: "Thanks for joining us!" },
+  { id: 1, title: "Welcome!", message: "Thanks for joining us! we are thriled to have you on board! we apoligize for the incomplete features, but we are working hard to bring you an amazing experience #3 Features every week.  # Join our discord for updates andto suggest improvement #tap the community button." },
   { id: 2, title: "New Update", message: "Check out our latest features." },
   {
     id: 3,

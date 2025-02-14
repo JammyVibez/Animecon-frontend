@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
+  const API = process.env.REACT_APP_API_URL;
   const username = useRef();
   const email = useRef();
   const password = useRef();
@@ -21,7 +22,7 @@ export default function Register() {
         password: password.current.value,
       };
       try {
-        await axios.post("/auth/register", user);
+        await axios.post(`${API}/api/auth/register`, user);
         navigate("/login"); // Use navigate to redirect to the login page
       } catch (err) {
         console.log(err);

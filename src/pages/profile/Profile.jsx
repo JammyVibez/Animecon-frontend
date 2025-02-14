@@ -9,6 +9,7 @@ import { useParams } from "react-router";
 
 
 export default function Profile() {
+  const API = process.env.REACT_APP_API_URL;
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username
@@ -17,7 +18,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`/users?username=${username}`);
+        const res = await axios.get(`${API}/api/users?username=${username}`);
         setUser(res.data);
       } catch (err) {
         console.error(err);

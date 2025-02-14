@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "./addfriend.css";
 
 export default function Addfriend() {
+    const API = process.env.REACT_APP_API_URL;
     const [followers, setFollowers] = useState([]);
     const [following, setFollowing] = useState([]);
     const [suggestedUsers, setSuggestedUsers] = useState([]);
@@ -36,7 +37,7 @@ export default function Addfriend() {
 
     const handleFollow = async (id) => {
         try {
-            await axios.put(`/users/${id}/follow`, { userId });
+            await axios.put(`${API}/api/users/${id}/follow`, { userId });
             setSuggestedUsers((prev) => prev.filter((user) => user._id !== id));
         } catch (err) {
             console.error(err);
@@ -45,7 +46,7 @@ export default function Addfriend() {
 
     const handleUnfollow = async (id) => {
         try {
-            await axios.put(`/users/${id}/unfollow`, { userId });
+            await axios.put(`${API}/api/users/${id}/unfollow`, { userId });
             setFollowing((prev) => prev.filter((user) => user._id !== id));
         } catch (err) {
             console.error(err);

@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+const API = process.env.REACT_APP_API_URL;
+
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -29,7 +31,7 @@ export default function Rightbar({ user }) {
     if (user?._id) {
       const getFriends = async () => {
         try {
-          const res = await axios.get(`/users/friends/${user._id}`);
+          const res = await axios.get(`${API}/api/users/friends/${user._id}`);
           setFriends(res.data);
         } catch (err) {
           console.error("Failed to fetch friends:", err);
