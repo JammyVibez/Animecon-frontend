@@ -27,7 +27,7 @@ const SettingsPage = () => {
       if (!confirmDelete) return;
   
       try {
-        const response = await fetch(`http://localhost:3001/delete-account/${user.id}`, {
+        const response = await fetch(`http://localhost:3001/delete-account/${user._id}`, {
           method: "DELETE",
         });
   

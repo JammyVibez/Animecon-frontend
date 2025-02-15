@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Users } from "../../dummyData";
 import Friend from "../friend/Friend";
 import {
-  Menu, Close, QuestionAnswer, RssFeed, Article, ShortText, Cached, HelpOutline, Event, ConnectedTv, WorkOutline, Group, WatchLater,
+  Menu, Close, QuestionAnswer, Settings, RssFeed, Article, ShortText, Cached, HelpOutline, Event, ConnectedTv, WorkOutline, Group, WatchLater,
 } from "@mui/icons-material";
 import "./sidebar.css";
 
@@ -79,10 +79,10 @@ export default function Sidebar() {
             <span className="sidebarListItemText">Community</span>
           </li>
           </Link>
-          <Link to="/find" style={{ color: "inherit", textDecoration: "none" }}>
+          <Link to="/settings" style={{ color: "inherit", textDecoration: "none" }}>
           <li className="sidebarListItem">
-            <WatchLater className="sidebarIcon" />
-            <span className="sidebarListItemText">Watch List</span>
+            <Settings className="sidebarIcon" />
+            <span className="sidebarListItemText">Settings</span>
           </li>
           </Link>
         </ul>
