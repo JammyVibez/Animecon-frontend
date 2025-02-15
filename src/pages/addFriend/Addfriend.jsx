@@ -21,9 +21,9 @@ export default function Addfriend() {
         const fetchFollowersAndFollowing = async () => {
             if (!userId) return;
             try {
-                const followersRes = await axios.get(`/users/${userId}/followers`);
-                const followingRes = await axios.get(`/users/${userId}/following`);
-                const suggestedRes = await axios.get(`/users/suggested/${userId}`);
+                const followersRes = await axios.get(`${API}/api/users/${userId}/followers`);
+                const followingRes = await axios.get(`${API}/api/users/${userId}/following`);
+                const suggestedRes = await axios.get(`${API}/api/users/suggested/${userId}`);
                 setFollowers(followersRes.data);
                 setFollowing(followingRes.data);
                 setSuggestedUsers(suggestedRes.data);
