@@ -57,7 +57,7 @@ export default function Rightbar({ user }) {
         <img className="rightbarAd" src="/assets/ads/attachment.jpg" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-            <Online key={user.id} user={user} />
+            <Online key={user._id} user={user} />
         </ul>
       </div>
       </div>
