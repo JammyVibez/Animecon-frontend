@@ -292,7 +292,7 @@ export default function Share() {
     setIsLoading(true); // Show loading bar
 
     const data = new FormData();
-    data.append("userId", user._id);
+    data.append("userId", user?._id);
     data.append("desc", desc.current.value);
     data.append("location", location);
     data.append("genre", genre);

@@ -45,9 +45,9 @@ export default function Messenger() {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    if (!user || !user._id) return;
+    if (!user || !user?._id) return;
 
-    socket.current.emit("addUser", user._id);
+    socket.current.emit("addUser", user?._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(
         user.followings?.filter((f) => users.some((u) => u.userId === f)) || []
@@ -56,11 +56,11 @@ export default function Messenger() {
   }, [user]);
 
   useEffect(() => {
-    if (!user || !user._id) return;
+    if (!user || !user?._id) return;
 
     const getConversations = async () => {
       try {
-        const res = await axios.get(`${API}/api/conversations/` + user._id);
+        const res = await axios.get(`${API}/api/conversations/` + user?._id);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -91,17 +91,17 @@ export default function Messenger() {
     }
 
     const formData = new FormData();
-    formData.append("sender", user._id);
+    formData.append("sender", user?._id);
     formData.append("text", newMessage);
     formData.append("conversationId", currentChat._id);
     if (file) {
       formData.append("file", file);
     }
 
-    const receiverId = currentChat.members.find((member) => member !== user._id);
+    const receiverId = currentChat.members.find((member) => member !== user?._id);
 
     socket.current.emit("sendMessage", {
-      senderId: user._id,
+      senderId: user?._id,
       receiverId,
       text: newMessage,
     });
@@ -157,7 +157,7 @@ export default function Messenger() {
                 <div className="chatBoxTop">
                   {messages.map((m) => (
                     <div ref={scrollRef} key={m._id}>
-                      <Message message={m} own={m.sender === user._id} />
+                      <Message message={m} own={m.sender === user?._id} />
                     </div>
                   ))}
                 </div>
@@ -196,7 +196,7 @@ export default function Messenger() {
           <div className="chatOnlineWrapper">
             <ChatOnline
               onlineUsers={onlineUsers}
-              currentId={user._id}
+              currentId={user?._id}
               setCurrentChat={setCurrentChat}
               socket={socket}
             />

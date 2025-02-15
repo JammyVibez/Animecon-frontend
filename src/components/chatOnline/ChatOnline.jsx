@@ -148,13 +148,13 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 
   const handleClick = async (user) => {
     try {
-      const res = await axios.get(`/conversations/find/${currentId}/${user._id}`);
+      const res = await axios.get(`/conversations/find/${currentId}/${user?._id}`);
       setCurrentChat(res.data);
 
       // Reset unread message count for this user
       setNewMessages((prev) => {
         const updated = { ...prev };
-        delete updated[user._id];
+        delete updated[user?._id];
         return updated;
       });
     } catch (err) {

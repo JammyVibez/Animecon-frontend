@@ -20,9 +20,9 @@ export default function ProfileRightbar({ user }) {
 
   const handleStartChat = async () => {
     try {
-      const res = await axios.get(`${API}/api/conversations/${user._id}`);
+      const res = await axios.get(`${API}/api/conversations/${user?._id}`);
       const existingConversation = res.data.find((c) =>
-        c.members.includes(user._id)
+        c.members.includes(user?._id)
       );
 
       if (existingConversation) {
@@ -30,7 +30,7 @@ export default function ProfileRightbar({ user }) {
       } else {
         const newConversation = await axios.post("/conversations", {
           senderId: currentUser._id,
-          receiverId: user._id
+          receiverId: user?._id
         });
         navigate(`${API}/api/messenger?conversationId=${newConversation.data._id}`);
       }
@@ -47,7 +47,7 @@ export default function ProfileRightbar({ user }) {
     if (user?._id) {
       const getFriends = async () => {
         try {
-          const res = await axios.get(`${API}/api/users/friends/${user._id}`);
+          const res = await axios.get(`${API}/api/users/friends/${user?._id}`);
           setFriends(res.data);
         } catch (err) {
           console.error("Failed to fetch friends:", err);
@@ -60,15 +60,15 @@ export default function ProfileRightbar({ user }) {
   const followHandler = async () => {
     try {
       if (followed) {
-        await axios.put(`${API}/api/users/${user._id}/unfollow`, {
+        await axios.put(`${API}/api/users/${user?._id}/unfollow`, {
           userId: currentUser._id
         });
-        dispatch({ type: "UNFOLLOW", payload: user._id });
+        dispatch({ type: "UNFOLLOW", payload: user?._id});
       } else {
-        await axios.put(`${API}/api/users/${user._id}/follow`, {
+        await axios.put(`${API}/api/users/${user?._id}/follow`, {
           userId: currentUser._id
         });
-        dispatch({ type: "FOLLOW", payload: user._id });
+        dispatch({ type: "FOLLOW", payload: user?._id});
       }
       setFollowed(!followed);
     } catch (err) {

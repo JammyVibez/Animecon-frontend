@@ -12,7 +12,7 @@ const SettingsPage = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [coverPicture, setCoverPicture] = useState(null);
   const [loading, setLoading] = useState(false);
-  const userId = user._id;
+  const userId = user?._id;
 
 
     const handleLogout = () => {
@@ -27,7 +27,7 @@ const SettingsPage = () => {
       if (!confirmDelete) return;
   
       try {
-        const response = await fetch(`${API}/api/delete-account/${user._id}`, {
+        const response = await fetch(`${API}/api/delete-account/${user?._id}`, {
           method: "DELETE",
         });
   
@@ -62,7 +62,7 @@ const SettingsPage = () => {
     e.preventDefault();
   
     try {
-      const userId = user._id;
+      const userId = user?._id;
       let updatedUser = { ...userData };
   
       // Update profile picture

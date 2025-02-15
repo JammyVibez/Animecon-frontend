@@ -16,7 +16,7 @@ const Leaderboard = () => {
       <h2>Top Anime Fans</h2>
       <ul>
         {users.map((user, index) => (
-          <li key={user._id}>
+          <li key={user?._id}>
             <span className="rank-index">{index + 1}.</span>
             <img src={user.profilePicture} alt="User Avatar" className="leaderboard-avatar" />
             <span className="username">{user.username}</span>

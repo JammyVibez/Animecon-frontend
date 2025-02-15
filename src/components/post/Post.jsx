@@ -61,7 +61,7 @@ export default function Post({ post, bgColor }) {
     console.log("Current User from Context:", currentUser);
   
     if (currentUser && user) {
-      setIsFollowing(currentUser.following.includes(user._id));
+      setIsFollowing(currentUser.following.includes(user?._id));
     }
   }, [currentUser, user]);
   
@@ -70,13 +70,13 @@ export default function Post({ post, bgColor }) {
     console.log("Following user ID:", user?._id);
     console.log("Current user ID:", currentUser?._id);
   
-    if (!currentUser || !currentUser._id || !user || !user._id) {
+    if (!currentUser || !currentUser._id || !user || !user?._id) {
       console.error("Invalid user data.");
       return;
     }
   
     try {
-      const response = await axios.put(`${API}/api/users/${user._id}/follow`, {
+      const response = await axios.put(`${API}/api/users/${user?._id}/follow`, {
         userId: currentUser._id, // Ensure this is correct
       });
   

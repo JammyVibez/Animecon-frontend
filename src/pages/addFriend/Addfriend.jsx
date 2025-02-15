@@ -38,7 +38,7 @@ export default function Addfriend() {
     const handleFollow = async (id) => {
         try {
             await axios.put(`${API}/api/users/${id}/follow`, { userId });
-            setSuggestedUsers((prev) => prev.filter((user) => user._id !== id));
+            setSuggestedUsers((prev) => prev.filter((user) => user?._id !== id));
         } catch (err) {
             console.error(err);
         }
@@ -47,7 +47,7 @@ export default function Addfriend() {
     const handleUnfollow = async (id) => {
         try {
             await axios.put(`${API}/api/users/${id}/unfollow`, { userId });
-            setFollowing((prev) => prev.filter((user) => user._id !== id));
+            setFollowing((prev) => prev.filter((user) => user?._id !== id));
         } catch (err) {
             console.error(err);
         }
@@ -78,7 +78,7 @@ export default function Addfriend() {
 
                         <div className="friend-list">
                             {suggestedUsers.slice(0, visibleSuggested).map((user) => (
-                                <div key={user._id} className="friend-card">
+                                <div key={user?._id} className="friend-card">
                                     <img
                                         src={user.profilePicture || "/assets/profilepic.jpg"}
                                         className="profile-pic"
@@ -103,7 +103,7 @@ export default function Addfriend() {
                                         </span>
                                     </div>
                                     <div className="friend-actions">
-                                        <button className="btn add-btn" onClick={() => handleFollow(user._id)}>
+                                        <button className="btn add-btn" onClick={() => handleFollow(user?._id)}>
                                             Follow
                                         </button>
                                         <Link to={`/profile/${user.username}`}>
@@ -129,7 +129,7 @@ export default function Addfriend() {
                             <h2 className="noText">Users Who Followed You</h2>
                             <div className="friend-list">
                                 {followers.slice(0, visibleFollowers).map((user) => (
-                                    <div key={user._id} className="friend-card">
+                                    <div key={user?._id} className="friend-card">
                                         <img
                                             src={user.profilePicture || "/assets/profilepic.jpg"}
                                             className="profile-pic"
@@ -140,7 +140,7 @@ export default function Addfriend() {
                                             <p className="friend-bio">{user.desc || "No bio available"}</p>
                                         </div>
                                         <div className="friend-actions">
-                                            <button className="btn add-btn" onClick={() => handleFollow(user._id)}>
+                                            <button className="btn add-btn" onClick={() => handleFollow(user?._id)}>
                                                 Follow Back
                                             </button>
                                             <Link to={`/profile/${user.username}`}>
@@ -166,7 +166,7 @@ export default function Addfriend() {
                             <h2 className="noText">Users You Are Following</h2>
                             <div className="friend-list">
                                 {following.slice(0, visibleFollowing).map((user) => (
-                                    <div key={user._id} className="friend-card">
+                                    <div key={user?._id} className="friend-card">
                                         <img
                                             src={user.profilePicture || "/assets/profilepic.jpgjpg"}
                                             className="profile-pic"
@@ -177,7 +177,7 @@ export default function Addfriend() {
                                             <p className="friend-bio">{user.desc || "No bio available"}</p>
                                         </div>
                                         <div className="friend-actions">
-                                            <button className="btn add-btn" onClick={() => handleUnfollow(user._id)}>
+                                            <button className="btn add-btn" onClick={() => handleUnfollow(user?._id)}>
                                                 Unfollow
                                             </button>
                                             <Link to={`/profile/${user.username}`}>

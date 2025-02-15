@@ -31,7 +31,7 @@ export default function Rightbar({ user }) {
     if (user?._id) {
       const getFriends = async () => {
         try {
-          const res = await axios.get(`${API}/api/users/friends/${user._id}`);
+          const res = await axios.get(`${API}/api/users/friends/${user?._id}`);
           setFriends(res.data);
         } catch (err) {
           console.error("Failed to fetch friends:", err);
@@ -57,7 +57,7 @@ export default function Rightbar({ user }) {
         <img className="rightbarAd" src="/assets/ads/attachment.jpg" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-            <Online key={user._id} user={user} />
+            <Online key={user?._id} user={user} />
         </ul>
       </div>
       </div>
