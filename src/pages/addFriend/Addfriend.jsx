@@ -77,7 +77,7 @@ export default function Addfriend() {
                         <h2 className="page-title">Add New Friends</h2>
 
                         <div className="friend-list">
-                            {suggestedUsers.slice(0, visibleSuggested).map((user) => (
+                        {Array.isArray(suggestedUsers) && suggestedUsers.slice(0, visibleSuggested).map((user) => (
                                 <div key={user?._id} className="friend-card">
                                     <img
                                         src={user.profilePicture || "/assets/profilepic.jpg"}
@@ -128,7 +128,7 @@ export default function Addfriend() {
                         <div className="friendWhoFollowedYou">
                             <h2 className="noText">Users Who Followed You</h2>
                             <div className="friend-list">
-                                {followers.slice(0, visibleFollowers).map((user) => (
+                               {Array.isArray(followers) && followers.slice(0, visibleFollowers).map((user) => (
                                     <div key={user?._id} className="friend-card">
                                         <img
                                             src={user.profilePicture || "/assets/profilepic.jpg"}
@@ -165,7 +165,7 @@ export default function Addfriend() {
                         <div className="friendWhoFollowedYou">
                             <h2 className="noText">Users You Are Following</h2>
                             <div className="friend-list">
-                                {following.slice(0, visibleFollowing).map((user) => (
+{Array.isArray(following) && following.slice(0, visibleFollowing).map((user) => (
                                     <div key={user?._id} className="friend-card">
                                         <img
                                             src={user.profilePicture || "/assets/profilepic.jpgjpg"}

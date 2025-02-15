@@ -45,6 +45,7 @@ function App() {
           <Route path="/animecon-news" element={user ? <News /> : <Navigate to="/login" />} />
           <Route path="/stories" element={user ? <Stories /> : <Navigate to="/login" />} />
           <Route path="/quest" element={user ? <Quest /> : <Navigate to="/login" />} />
+          <Route path="/notifications" element={user ? <Notification /> : <Navigate to="/login" />} />
           <Route path="/profile/:username" element={user ? <Profile /> : <Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
