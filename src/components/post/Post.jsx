@@ -76,7 +76,7 @@ export default function Post({ post, bgColor }) {
     }
   
     try {
-      const response = await axios.put(`/users/${user._id}/follow`, {
+      const response = await axios.put(`${API}/api/users/${user._id}/follow`, {
         userId: currentUser._id, // Ensure this is correct
       });
   
