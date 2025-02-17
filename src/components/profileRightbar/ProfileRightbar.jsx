@@ -26,13 +26,13 @@ export default function ProfileRightbar({ user }) {
       );
 
       if (existingConversation) {
-        navigate(`${API}/api/messenger?conversationId=${existingConversation._id}`);
+        navigate(`/messenger?conversationId=${existingConversation._id}`);
       } else {
         const newConversation = await axios.post("/conversations", {
           senderId: currentUser._id,
           receiverId: user?._id
         });
-        navigate(`${API}/api/messenger?conversationId=${newConversation.data._id}`);
+        navigate(`/messenger?conversationId=${newConversation.data._id}`);
       }
     } catch (err) {
       console.error("Error starting conversation:", err);

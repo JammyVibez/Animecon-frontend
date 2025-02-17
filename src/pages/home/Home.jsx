@@ -38,7 +38,7 @@ export default function Home() {
                             This site is still under development. If you notice any bugs or have suggestions, 
                             please join our Discord community and let us know!
                         </p>
-                        <a href="https://discord.com" className="modal-discord" target="_blank" rel="noopener noreferrer">
+                        <a href="https://discord.gg/nwdsUp6B" className="modal-discord" target="_blank" rel="noopener noreferrer">
                             Join Discord
                         </a>
                         <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
