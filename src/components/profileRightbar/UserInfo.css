@@ -1,156 +1,140 @@
-.rightbar {
+/* .rightbar {
     flex: 3.5;
 }
 
 .rightbarWrapper {
     padding: 20px 20px 0 0;
-}
+} */
 
-.postUserContainer {
-    display: flex;
-    align-items: center;
-}
-
-.postUserImg {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.postUserText {
-    font-weight: 300;
-    font-style: 15px;
-}
-
-.flipsButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px
-}
-.flipsButton {
-    padding: 10px;
-}
-
-
-
-.rightbarTitle {
-    margin-bottom: 20px;
-}
-
-.rightbarFriendList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.rightbarTitle {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-
-
-.rightbarInfo {
-    margin-bottom: 30px;
-}
-
-
-
-
-.rightbarInfoItem {
-    margin-bottom: 20px;
-}
-
-
-.profileInfoFollowers,
-.profileInfoFollowing,
-.profileInfoRank,
-.profileInfoLevel,
-.profileInfoGenre {
-    font-weight: 500;
-    margin-right: 15px;
-    
-}
-
-.rightbarInfoValue {
-    padding: 10px;
-    font-weight: 300;
-    color: #555;
-}
-
-
-.rightbarFollowings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.rightbarFollowing {
+/* Responsive User Info Component */
+.rightbar {
+    flex: 3;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #fff;
+  }
+  
+  .rightbarWrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    gap: 20px;
+  }
+  
+  /* Section Toggle */
+  .flipButtons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  
+  .flipButton {
     cursor: pointer;
-}
-.rightbarFollowingImg {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.rightbarFollowingName {
-    margin-top: 5px;
-    text-align: center;
-}
-
-.rightbarFollowButton {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: #e7abeb;
+    padding: 8px 16px;
     border-radius: 8px;
-    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .flipButton.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* User Info and Friends Section */
+  .rightbarContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rightbarTitle {
     font-size: 18px;
-    text-align: center;
-    cursor: pointer;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  
+  .rightbarInfoItem {
+    margin-bottom: 10px;
+  }
+  
+  /* Friends List */
+  .rightbarFollowings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+  }
+  
+  .rightbarFollowing {
     display: flex;
-    padding: 6px;
-    color: white;
-}
-
-.rightbarFollowButton:hover {
-    background-color: #f2f2f2;
-    color: black;
-}
-
-.rightbarFollowButton :focus{
-    outline: none;
-}
-
-.messageButton {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rightbarFollowingImg {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+  }
+  
+  /* Follow and Chat Button */
+  .messageButton, .rightbarFollowButton {
     padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .messageButton:hover {
-    background-color: #45a049;
-  }
-    
-  .badge-container {
-    display: flex;
-    justify-content: center;
     margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
   }
   
-  .badge-icon {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
+  .messageButton:hover, .rightbarFollowButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .rightbar {
+      flex: 1;
+      padding: 10px;
+    }
+  
+    .flipButtons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .flipButton {
+      margin-bottom: 8px;
+    }
+  
+    .rightbarFollowings {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+  
+    .rightbarFollowingImg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .rightbarTitle {
+      font-size: 16px;
+    }
+  
+    .messageButton, .rightbarFollowButton {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .rightbarFollowings {
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+  
+    .rightbarFollowingImg {
+      width: 40px;
+      height: 40px;
+    }
   }

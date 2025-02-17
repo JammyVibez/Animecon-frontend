@@ -13,7 +13,7 @@ export default function News() {
                         <h1 className="page-title">Latest Anime News</h1>
                         <section className="news-container">
                             <div className="news-card">
-                               <img src="assets/post/4.jpg" alt="" />
+                               <img src="" alt="" />
                                     <div className="news-content">
                                         <h3 className="news-title">Attack on Titan Final Season Release Date Announced!</h3>
                                         <p className="news-snippet">The long-awaited finale of Attack on Titan is set to air next month...</p>
@@ -21,7 +21,7 @@ export default function News() {
                                     </div>
                             </div>
                             <div className="news-card">
-                                 <img src="assets/post/5.jpg" alt="" />
+                                 <img src="" alt="" />
                                     <div className="news-content">
                                         <h3 className="news-title">One Piece Live-Action Season 2 Confirmed</h3>
                                         <p className="news-snippet">Fans of the Straw Hat crew rejoice as Netflix confirms the second season...</p>

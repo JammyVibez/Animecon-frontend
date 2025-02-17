@@ -55,7 +55,7 @@ export default function Sidebar() {
             <span className="sidebarListItemText">News</span>
           </li>
           </Link>
-          <Link to="/find" style={{ color: "inherit", textDecoration: "none" }}>
+          <Link to="/stories" style={{ color: "inherit", textDecoration: "none" }}>
           <li className="sidebarListItem">
             <ShortText className="sidebarIcon" />
             <span className="sidebarListItemText">Stories</span>

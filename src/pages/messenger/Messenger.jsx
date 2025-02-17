@@ -7,7 +7,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { io } from "socket.io-client";
-import { PermMedia, EmojiEmotions } from "@mui/icons-material";
+import { PermMedia, EmojiEmotions, ArrowBack } from "@mui/icons-material";
 import EmojiPicker from "emoji-picker-react";
 const API = process.env.REACT_APP_API_URL;
 
@@ -22,8 +22,18 @@ export default function Messenger() {
   const [file, setFile] = useState(null);
   const [emojiPickerVisible, setEmojiPickerVisible] = useState(false);
   const socket = useRef();
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
   const { user } = useContext(AuthContext); // Using user from AuthContext
   const scrollRef = useRef();
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     socket.current = io("https://animecon-socket.onrender.com");
@@ -82,8 +92,14 @@ export default function Messenger() {
     getMessages();
   }, [currentChat]);
 
+  const handleBack = () => {
+    setCurrentChat(null);
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
 
     if (!currentChat) {
       console.log("No chat selected.");
@@ -134,8 +150,9 @@ export default function Messenger() {
   return (
     <>
       <Topbar />
-      <div className="messenger">
-        <div className="chatMenu">
+      <div className={`messenger ${isMobileView && currentChat ? "hideChat" : ""}`}>
+        {/* Chat Menu */}
+        <div className={`chatMenu ${isMobileView && currentChat ? "hideMenu" : "showMenu"}`}>
           <div className="chatMenuWrapper">
             <input placeholder="Search for friends" className="chatMenuInput" />
             {conversations.map((c) => (
@@ -154,6 +171,12 @@ export default function Messenger() {
           <div className="chatBoxWrapper">
             {currentChat ? (
               <>
+               {/* Back button for mobile */}
+               {isMobileView && (
+                  <button className="backButton" onClick={handleBack}>
+                    <ArrowBack /> Back
+                  </button>
+                )}
                 <div className="chatBoxTop">
                   {messages.map((m) => (
                     <div ref={scrollRef} key={m._id}>

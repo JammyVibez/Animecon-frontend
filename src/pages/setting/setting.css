@@ -1,101 +1,5 @@
 
 
-/* Container */
-/* .settings-container {
- display: flex;
-}
-
-.settingRight {
-  flex: 9;
-} */
-
-/* Card */
-/* .card {
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  margin: 50px;
-  padding: 30px;
-  width: 400px;
-  animation: float 6s ease-in-out infinite;
-} */
-
-/* Title */
-/* .title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
-} */
-
-/* Form Groups */
-/* .form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  color: black;
-  font-size: 1rem;
-  outline: none;
-  transition: background 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  background: rgba(255, 255, 255, 0.3);
-} */
-
-/* File Upload */
-/* .file-upload input[type="file"] {
-  border: 1px dashed rgba(255, 255, 255, 0.5);
-  padding: 10px;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
-} */
-
-/* Button */
-/* .btn-setting {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(90deg, #ff7eb3, #ff758c);
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
-} */
-
-/* Animations */
-/* @keyframes float {
-  0%,
-  100% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(10deg);
-  }
-} */
-
-
 /* setting.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -215,10 +119,87 @@ button:hover {
     box-shadow: 0 0 15px #ff008c;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .settings-container {
-        flex-direction: column;
-        align-items: center;
-    }
+.settings-container {
+  display: flex;
+  flex-direction: column; /* Default for mobile */
+  align-items: center;
+  padding: 20px;
 }
+
+@media (min-width: 768px) {
+  .settings-container {
+    flex-direction: row; /* Sidebar on left, content on right for larger screens */
+    justify-content: center;
+  }
+}
+
+.settingRight {
+  flex: 1;
+  max-width: 600px; /* Prevent too-wide content */
+  width: 100%;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.file-upload input {
+  width: 100%;
+}
+
+.btn-setting {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.btn-setting:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 14px;
+  }
+
+  .btn-setting {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar */
+  }
+}
+

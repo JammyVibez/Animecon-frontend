@@ -1,221 +1,180 @@
+/* Share Component Styles */
+
 .share {
-    width: 100%;
-    border-radius: 10px;
-    background-color: white;
-    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    margin-bottom: 50px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-top: 20px;
 }
 
 .shareWrapper {
-    padding: 10px;
+  padding: 20px;
 }
+
+/* Top Section */
 .shareTop {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .shareProfileImg {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.shareInput {
-    border: none;
-    width: 80%;
-}
-
-.shareInput:focus {
-    outline: none;
-}
-
-.shareHr {
-    margin: 20px;
-}
-
-.shareBotton {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.shareOptions {
-    display: flex;
-    margin-left: 20px;
-}
-
-.shareOption {
-    display: flex;
-    align-items: center;
-    margin: 15px;
-    cursor: pointer;
-}
-
-.shareIcon {
-    font-size: 18px;
-    margin-right: 4px;
-}
-
-.shareOptionText {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-
-.shareButton {
-    border: none;
-    padding: 7px;
-    border-radius: 5px;
-    background-color: rgb(15, 199, 15);
-    font-weight: 500;
-    margin-right: 20px;
-    cursor: pointer;
-    color: white;
-}
-
-.shareImgContainer{
-  padding: 0 70px 10px 20px;
-  position: relative;
-}
-
-.shareImg{
-  width: 100%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
-.shareCancelImg{
-  position: absolute;
-  top: 0;
-  right: 20px;
-  cursor: pointer;
-  opacity: 0.7;
+.shareInput {
+  border: none;
+  outline: none;
+  width: 80%;
+  margin-left: 10px;
+  resize: none;
 }
 
-.characterCount {
-    font-size: 12px;
-    color: gray;
-    margin-left: 10px;
-  }
-  
-  .genreSelect {
-    border: none;
-    background-color: #f0f0f0;
-    padding: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
+/* Share Details (Location, Genre) */
+.shareDetails {
+  margin-top: 10px;
+}
 
-  .shareInputWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+.hashtag {
+  display: inline-block;
+  margin-right: 10px;
+  color: #3f51b5;
+  font-weight: 500;
+}
 
-  .sharedDetails {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .hashtag {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    font-size: 12px;
-    color: #555;
-  }
-  
-  .hashtag span {
-    background-color: #b3aaaa;
-    padding: 5px 10px;
-    border-radius: 15px;
-  }
-  
-  .tagInput,
-  .locationInput,
-  .feelingInput {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 14px;
-    margin-top: 5px;
-    width: 80%;
-  }
+.shareHr {
+  margin: 20px 0;
+}
 
-  
-  /* Modal Overlay */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+/* Bottom Section */
+.shareBottom {
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  justify-content: space-between;
 }
 
-/* Modal Content */
-.modalContent {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
+.shareOptions {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Buttons inside the modal */
-.modalButton {
+.shareOption {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.shareIcon {
+  margin-right: 5px;
+}
+
+.shareButton {
   padding: 8px 16px;
-  margin: 10px;
   background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.modalButton:hover {
-  background-color: #45a049;
+.shareButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-.modalPreview img,
-.modalPreview video {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-/* Radio Buttons inside Modals */
-.modalContent input[type="radio"] {
-  margin-right: 8px;
-}
-
-.modalContent label {
-  margin-right: 20px;
-  cursor: pointer;
-}
+/* Loading Bar */
 .loadingBar {
   width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, #ff5722, #ff9800);
+  height: 4px;
+  background: linear-gradient(90deg, #4caf50, #81c784);
   animation: loading 1.5s infinite;
 }
 
 @keyframes loading {
-  0% {
-    width: 0;
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Modals */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modalImage, .modalVideo {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.modalButton {
+  padding: 8px 12px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .shareWrapper {
+    padding: 10px;
   }
-  100% {
-    width: 100%;
+
+  .shareInput {
+    width: 70%;
+  }
+
+  .shareOptionText {
+    display: none;
+  }
+
+  .modalContent {
+    width: 95%;
   }
 }
+
+@media (max-width: 480px) {
+  .shareProfileImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shareInput {
+    font-size: 14px;
+  }
+
+  .shareButton {
+    padding: 6px 12px;
+  }
+
+  .modalContent {
+    padding: 15px;
+  }
+} 

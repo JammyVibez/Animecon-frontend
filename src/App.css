@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Cyberpunk Neon Light Theme */
-[data-theme="light"] {
-    --primary-bg: #1a1a2e; /* Dark navy blue */
-    --secondary-bg: #16213e; /* Slightly lighter navy */
-    --primary-text: #e6e6fa; /* Soft lavender */
-    --secondary-text: #cfcfcf; /* Light gray */
-    --card-bg: #0f3460; /* Deep cyan */
+/* Futuristic 3D White Light Theme */
+[data-theme="light"] { 
+    --primary-bg: #ffffff; /* Pure white */
+    --secondary-bg: #f8f8f8; /* Soft off-white */
+    --primary-text: #1a1a2e; /* Deep navy blue for contrast */
+    --secondary-text: #333333; /* Dark gray for readability */
+    --card-bg: #e0e0e0; /* Light gray with a 3D feel */
     --accent: #ff00ff; /* Bright neon pink */
-    --border-color: #ff00ff; /* Neon pink for accents */
+    --border-color: #d1d1d1; /* Subtle gray border for depth */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Soft shadow for 3D effect */
 }
 
 /* Cyberpunk Neon Dark Theme */
@@ -20,6 +21,36 @@
     --card-bg: #1a1a1a; /* Dark grayish background */
     --accent: #ff007f; /* Hot neon magenta */
     --border-color: #00eaff; /* Neon cyan border */
+}
+
+/* Applying 3D effect for Light Theme */
+[data-theme="light"] .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 4px 4px 10px var(--shadow-color);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+[data-theme="light"] .card:hover {
+    box-shadow: 6px 6px 20px var(--shadow-color);
+    transform: translateY(-3px);
+}
+
+/* Buttons */
+[data-theme="light"] button {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+    box-shadow: 3px 3px 8px var(--shadow-color);
+    transition: all 0.2s ease-in-out;
+}
+
+[data-theme="light"] button:hover {
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 5px 5px 12px var(--shadow-color);
+    transform: translateY(-2px);
 }
 
 /* Glowing Effects */
@@ -70,7 +101,7 @@ h1, label, .title, .logo, span {
 .homeContainer {
     width: 100%;
 }
-.homeContainer, .profile, .settings-container, .addfriend {
+.homeContainer, .profile, .settings-container, .addfriend, .messenger, .chatMenu, .chatBox, .chatOnline, .friend-card, .share, .modalContent, .post, .commentsSection, .storie, .update, .event .news{
     background-color: var(--primary-bg);
     color: var(--primary-text);
 }

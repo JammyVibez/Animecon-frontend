@@ -14,7 +14,7 @@ export default function Event() {
                         <h2 className="event-title">Upcoming Evenets</h2>
                         <div className="event-container">
                             <div className="event-card">
-                                <img src="/assets/3.jpg" alt="" className="event-image" />
+                                <img src="" alt="" className="event-image" />
                                 <div className="event-info">
                                     <h3 className="event-name">Anime Convertion 2024</h3>
                                     <p className="event-date">Date: January 20, 2025</p>
@@ -28,7 +28,7 @@ export default function Event() {
                                 </div>
                             </div>
                             <div className="event-card">
-                                <img src="/assets/3.jpg" alt="" className="event-image" />
+                                <img src="" alt="" className="event-image" />
 
                                 <div className="event-info">
                                     <h3 className="event-name">Cosplay Competition</h3>
@@ -43,7 +43,7 @@ export default function Event() {
                                 </div>
                             </div>
                             <div className="event-card">
-                                <img src="/assets/3.jpg" alt="" className="event-image" />
+                                <img src="" alt="" className="event-image" />
 
                                 <div className="event-info">
                                     <h3 className="event-name">Cosplay Competition</h3>

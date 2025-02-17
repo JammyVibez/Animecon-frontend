@@ -1,88 +1,117 @@
-/* messenger.css */
-
 .messenger {
-    display: flex;
-    height: calc(100vh - 50px);
-  }
-  
-  .chatMenu,
-  .chatBox,
-  .chatOnline {
-    flex: 1;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  }
-  
-  .chatMenuWrapper,
-  .chatBoxWrapper,
-  .chatOnlineWrapper {
-    padding: 10px;
-    height: 100%;
-  }
-  
-  .chatMenuInput {
-    width: 90%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    outline: none;
-  }
-  
-  .chatBoxTop {
-    height: 75%;
-    overflow-y: scroll;
-    padding-right: 10px;
-  }
-  
-  .chatBoxBottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .chatMessageInput {
-    width: 70%;
-    height: 20px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    outline: none;
-  }
-  
-.emoji {
-  border: none;
-  background-color:#ffff;
-  margin: 6px;
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
 
-  .chatFileInput {
-    width:  15%;
-    padding: 5px;
-    border: none;
-    outline: none;
-  }
-  
-  .chatSubmitButton {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: teal;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .noConversationText {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: gray;
-  }
-  
+/* Chat Menu (Conversation List) */
+.chatMenu {
+  flex: 1;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
 
- 
-  
+.chatMenuWrapper {
+  padding: 10px;
+}
+
+.chatMenuInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Chat Box (Message Section) */
+.chatBox {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+}
+
+.chatBoxTop {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.chatBoxBottom {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.chatMessageInput {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  resize: none;
+}
+
+.chatSubmitButton {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.chatSubmitButton:hover {
+  background-color: #0056b3;
+}
+
+/* Chat Online (Friends Online Section) */
+.chatOnline {
+  flex: 1;
+  border-left: 1px solid #ddd;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chatMenu {
+    flex: 1;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background: white;
+    z-index: 100;
+    transform: translateX(-100%);
+  }
+
+  .chatBox {
+    flex: 3;
+    width: 100%;
+  }
+
+  .chatOnline {
+    display: none;
+  }
+
+  .showMenu .chatMenu {
+    transform: translateX(0);
+  }
+
+  .hideChat .chatBox {
+    display: none;
+  }
+}

@@ -321,8 +321,17 @@ export default function Share() {
   };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-    setReviewModalOpen(true);
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      try {
+        URL.createObjectURL(selectedFile);
+        setFile(selectedFile);
+        setReviewModalOpen(true);
+      } catch (error) {
+        console.error("Invalid file selected:", error);
+        alert("Invalid file format or corrupted file.");
+      }
+    }
   };
 
   const closeModal = () => {

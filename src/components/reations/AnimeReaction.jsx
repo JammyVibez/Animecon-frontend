@@ -14,76 +14,43 @@ const reactions = [
 const AnimeReactions = ({ post, currentUser, onReactionUpdate }) => {
   const [selectedReaction, setSelectedReaction] = useState(null);
   const [showReactions, setShowReactions] = useState(false);
-const [like, setLike] = useState(post.likes ? post.likes.length : 0);
+  const [like, setLike] = useState(post?.likes?.length || 0);
   const [isLiked, setIsLiked] = useState(false);
-  const API = process.env.REACT_APP_API_URL;
   const [reactionCounts, setReactionCounts] = useState({});
-
-  // useEffect(() => {
-  //   const userLike = post.likes.find((like) => like.userId === currentUser._id);
-  //   setIsLiked(!!userLike);
-  //   setSelectedReaction(userLike ? reactions.find((r) => r.id === userLike.reaction) : null);
-
-  //   // Aggregate reaction counts
-  //   const counts = reactions.reduce((acc, reaction) => {
-  //     acc[reaction.id] = post.likes.filter((like) => like.reaction === reaction.id).length;
-  //     return acc;
-  //   }, {});
-  //   setReactionCounts(counts);
-  // }, [currentUser._id, post.likes]);
-
-  
+  const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    if (!post || !Array.isArray(post.likes)) return; // Ensure post exists and likes is an array
-  
-    // Check if the current user has liked the post
-    const userLiked = post.likes.some((like) => like.userId === currentUser._id);
-    setIsLiked(userLiked);
-  
-    // Get the selected reaction safely
-    const userLike = post.likes.filter((like) => like.userId === currentUser._id)[0]; // Get first match or undefined
-    setSelectedReaction(userLike ? reactions.filter((r) => r.id === userLike.reaction)[0] : null);
-  
-    // Handle reaction counts safely
+    if (!post || !Array.isArray(post.likes)) return;
+
+    const userLike = post.likes.find((like) => like.userId === currentUser._id);
+    setIsLiked(!!userLike);
+    setSelectedReaction(userLike ? reactions.find((r) => r.id === userLike.reaction) : null);
+
     const counts = reactions.reduce((acc, reaction) => {
       acc[reaction.id] = post.likes.filter((like) => like.reaction === reaction.id).length;
       return acc;
     }, {});
-  
     setReactionCounts(counts);
-  }, [currentUser._id, post?.likes]); // Use optional chaining to prevent undefined reference
-  
-  
-
-
-  
+  }, [currentUser._id, post?.likes]);
 
   const handleReaction = async (reaction) => {
-    setSelectedReaction(reaction);
-    setShowReactions(false);
-
-    anime({
-      targets: ".reaction-text",
-      scale: [0, 1.2, 1],
-      opacity: [0, 1],
-      duration: 600,
-      easing: "easeOutElastic",
-    });
-
     try {
-      await axios.put(`${API}/api/posts/${post._id}/like`, { userId: currentUser._id, reaction: reaction.id });
+      await axios.put(`${API}/api/posts/${post._id}/like`, {
+        userId: currentUser._id,
+        reaction: reaction.id,
+      });
 
-      if (isLiked && selectedReaction?.id === reaction.id) {
-        setLike(like - 1);
-        setIsLiked(false);
-        setSelectedReaction(null);
-      } else if (isLiked) {
-        setSelectedReaction(reaction);
-      } else {
-        setLike(like + 1);
-        setIsLiked(true);
-      }
+      anime({
+        targets: ".reaction-text",
+        scale: [0, 1.2, 1],
+        opacity: [0, 1],
+        duration: 600,
+        easing: "easeOutElastic",
+      });
+
+      setSelectedReaction((prev) => (prev?.id === reaction.id ? null : reaction));
+      setLike((prev) => (isLiked && selectedReaction?.id === reaction.id ? prev - 1 : prev + 1));
+      setIsLiked((prev) => !prev);
       onReactionUpdate(reaction.id);
     } catch (err) {
       console.error("Error liking post:", err);
@@ -129,15 +96,15 @@ const [like, setLike] = useState(post.likes ? post.likes.length : 0);
         </p>
       )}
 
-      {/* Display aggregated reaction counts */}
       <div className="reaction-summary">
-        {reactions.map((reaction) => (
-          reactionCounts[reaction.id] > 0 && (
-            <span key={reaction.id} className="reaction-count">
-              {reaction.icon} {reactionCounts[reaction.id]}
-            </span>
-          )
-        ))}
+        {reactions.map(
+          (reaction) =>
+            reactionCounts[reaction.id] > 0 && (
+              <span key={reaction.id} className="reaction-count">
+                {reaction.icon} {reactionCounts[reaction.id]}
+              </span>
+            )
+        )}
       </div>
     </div>
   );

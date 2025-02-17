@@ -1,6 +1,6 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
-import { ThumbUp, Comment } from "@mui/icons-material"
+import { ThumbUp, Comment, Share } from "@mui/icons-material"
 import "./update.css"
 
 export default function Update() {
@@ -21,13 +21,14 @@ export default function Update() {
                                     The latest episode of "My Hero Academia" is now live! Don’t miss out on the action-packed adventure.
                                 </p>
                                 <div className="media-container">
-                                    <img src="assets/4.jpg" alt="" />
+                                    <img src="" alt="" />
                                 </div>
                                 <div className="update-footer">
                                     <span className="timestamp">Posted 2 hours ago</span>
                                     <div className="interactions">
                                         <button className="like-btn"><ThumbUp /> 2.5K</button>
                                         <button className="comment-btn"><Comment /> 350</button>
+                                        <button className="comment-btn"> <Share /> 150</button>
                                     </div>
                                 </div>
                             </div>
@@ -49,6 +50,7 @@ export default function Update() {
                                     <div className="interactions">
                                         <button className="like-btn"><ThumbUp /> 4K</button>
                                         <button className="comment-btn"><Comment /> 800</button>
+                                        <button className="comment-btn"> <Share /> 15</button>
                                     </div>
                                 </div>
                             </div>
