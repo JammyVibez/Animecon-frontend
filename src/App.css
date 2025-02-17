@@ -7,7 +7,7 @@
     --primary-text: #1a1a2e; /* Deep navy blue for contrast */
     --secondary-text: #333333; /* Dark gray for readability */
     --card-bg: #e0e0e0; /* Light gray with a 3D feel */
-    --accent: #ff00ff; /* Bright neon pink */
+    --accent: #5d55cc; /* Bright neon pink */
     --border-color: #d1d1d1; /* Subtle gray border for depth */
     --shadow-color: rgba(0, 0, 0, 0.2); /* Soft shadow for 3D effect */
 }
@@ -19,7 +19,7 @@
     --primary-text: #00eaff; /* Neon cyan text */
     --secondary-text: #ff00ff; /* Neon pink */
     --card-bg: #1a1a1a; /* Dark grayish background */
-    --accent: #ff007f; /* Hot neon magenta */
+    --accent: #2a076b; /* Hot neon magenta */
     --border-color: #00eaff; /* Neon cyan border */
 }
 
@@ -354,10 +354,10 @@ button:hover {
 }
 
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .rightbar {
       display: none; 
     }
   }
-   */
+  
 
