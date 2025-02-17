@@ -355,7 +355,7 @@ button:hover {
 
 
 @media (max-width: 768px) {
-    .homeRightBar {
+    .rightbar {
       display: none; /* Hide sidebar */
     }
   }

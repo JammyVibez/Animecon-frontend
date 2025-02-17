@@ -3,15 +3,14 @@
     width: 60px;
     height: calc(100vh - 50px);
     overflow: hidden;
-    position: sticky;
     top: 50px;
     transition: width 75s ease;
-    overflow: hidden;
+    padding: 20px;
     border-radius: 5px 0 0 5px;
 }
 
 .sidebar:hover {
-    width: 250px;
+    width: 200px;
 }
 
 
@@ -24,10 +23,17 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
 
 .sidebarListItem {
     display: flex;
+    padding: 10px 10px;
+    border-bottom: 2px solid transparent;
+    border-radius: 5rem;
+    transition: background-color 0.3s ease;
     align-items: center;
     margin-bottom: 20px;
 }
