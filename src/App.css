@@ -23,7 +23,7 @@
     --border-color: #00eaff; /* Neon cyan border */
 }
 
-/* Applying 3D effect for Light Theme */
+/* Applying 3D effect for Light Theme
 [data-theme="light"] .card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -36,10 +36,10 @@
 [data-theme="light"] .card:hover {
     box-shadow: 6px 6px 20px var(--shadow-color);
     transform: translateY(-3px);
-}
+} */
 
 /* Buttons */
-[data-theme="light"] button {
+/* [data-theme="light"] button {
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
     color: var(--primary-text);
     border: 1px solid var(--border-color);
@@ -51,7 +51,7 @@
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
     box-shadow: 5px 5px 12px var(--shadow-color);
     transform: translateY(-2px);
-}
+} */
 
 /* Glowing Effects */
 button, .btn-setting, .form-group input, .form-group textarea {
@@ -353,4 +353,11 @@ button:hover {
     
 }
 
+
+@media (max-width: 768px) {
+    .homeRightBar {
+      display: none; /* Hide sidebar */
+    }
+  }
+  
 
