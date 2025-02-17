@@ -8,9 +8,7 @@
     border-radius: 5px 0 0 5px;
 }
 
-.sidebar:hover {
-    width: 200px;
-}
+
 
 
 .sidebarWrapper {
@@ -162,6 +160,11 @@
 .sidebar {
   width: 250px;
   transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar:hover {
+  width: 200px;
 }
 
 .sidebarWrapper {
@@ -186,7 +189,7 @@
 /* Small Devices */
 @media (max-width: 768px) {
   .sidebar {
-    width: 60px; /* Smaller width on small devices */
+    width: 100px; /* Smaller width on small devices */
     overflow-x: hidden;
   }
 
