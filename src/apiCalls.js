@@ -27,7 +27,11 @@ export const loginCall = async (userCredential, dispatch) => {
   try {
     console.log("Attempting login with credentials:", userCredential);
     
-    const res = await axios.post(`${API}/api/auth/login`, userCredential);
+    const res = await axios.post(
+      `${API}/api/auth/login`, 
+      userCredential, 
+      { headers: { "Content-Type": "application/json" } }  // Added headers
+    );
     console.log("Login response:", res.data);
   
   // Debugging logs
