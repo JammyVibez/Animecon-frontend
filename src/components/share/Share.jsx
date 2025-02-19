@@ -262,11 +262,7 @@
 
 
 import "./share.css";
-import {
-  PermMedia,
-  Room,
-  LocalMovies,
-} from "@mui/icons-material";
+import { PermMedia, Room, LocalMovies } from "@mui/icons-material";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
@@ -282,14 +278,14 @@ export default function Share() {
   const [isGenreModalOpen, setGenreModalOpen] = useState(false);
   const [location, setLocation] = useState("");
   const [genre, setGenre] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // New loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   const locations = ["Tokyo", "Paris", "New York", "Kyoto", "London"];
   const genres = ["Action", "Romance", "Fantasy", "Comedy"];
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Show loading bar
+    setIsLoading(true);
 
     const data = new FormData();
     data.append("userId", user?._id);
@@ -316,21 +312,15 @@ export default function Share() {
       console.error("Error in post submission:", err);
       alert("Failed to submit the post. Please try again.");
     } finally {
-      setIsLoading(false); // Hide loading bar
+      setIsLoading(false);
     }
   };
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      try {
-        URL.createObjectURL(selectedFile);
-        setFile(selectedFile);
-        setReviewModalOpen(true);
-      } catch (error) {
-        console.error("Invalid file selected:", error);
-        alert("Invalid file format or corrupted file.");
-      }
+      setFile(selectedFile);
+      setReviewModalOpen(true);
     }
   };
 
@@ -345,12 +335,8 @@ export default function Share() {
         <div className="shareTop">
           <img
             className="shareProfileImg"
-            src={
-              user.profilePicture
-                ? PF + user.profilePicture
-                : "/assets/profilepic.jpg"
-            }
-            alt=""
+            src={user.profilePicture ? PF + user.profilePicture : "/assets/profilepic.jpg"}
+            alt="Profile"
           />
           <textarea
             placeholder={`Write a description, ${user.username}!`}
@@ -389,45 +375,26 @@ export default function Share() {
             {isLoading ? "Posting..." : "Post"}
           </button>
         </form>
-
-        {/* Loading bar */}
-        {isLoading && <div className="loadingBar">Loading...</div>}
       </div>
-            {/* Review Modal */}
-            {isReviewModalOpen && (
+
+      {/* Review Modal */}
+      {isReviewModalOpen && (
         <div className="modal">
           <div className="modalContent">
             <h3>Review Your Post</h3>
             {file && (
               <div className="modalPreview">
                 {file.type.startsWith("image/") ? (
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt="Preview"
-                    className="modalImage"
-                  />
+                  <img src={URL.createObjectURL(file)} alt="Preview" className="modalImage" />
                 ) : (
-                  <video
-                    src={URL.createObjectURL(file)}
-                    controls
-                    className="modalVideo"
-                  ></video>
+                  <video src={URL.createObjectURL(file)} controls className="modalVideo" />
                 )}
               </div>
             )}
             <div className="modalActions">
-              <button className="modalButton" onClick={submitHandler}>
-                Post
-              </button>
-              <button
-                className="modalButton"
-                onClick={() => setReviewModalOpen(false)}
-              >
-                Edit
-              </button>
-              <button className="modalButton" onClick={closeModal}>
-                Cancel
-              </button>
+              <button className="modalButton" onClick={submitHandler}>Post</button>
+              <button className="modalButton" onClick={() => setReviewModalOpen(false)}>Edit</button>
+              <button className="modalButton" onClick={closeModal}>Cancel</button>
             </div>
           </div>
         </div>
@@ -440,13 +407,7 @@ export default function Share() {
             <h3>Choose Location</h3>
             {locations.map((loc) => (
               <div key={loc}>
-                <input
-                  type="radio"
-                  id={`location-${loc}`}
-                  value={loc}
-                  checked={location === loc}
-                  onChange={(e) => setLocation(e.target.value)}
-                />
+                <input type="radio" id={`location-${loc}`} value={loc} checked={location === loc} onChange={(e) => setLocation(e.target.value)} />
                 <label htmlFor={`location-${loc}`}>{loc}</label>
               </div>
             ))}
@@ -462,13 +423,7 @@ export default function Share() {
             <h3>Choose Genre</h3>
             {genres.map((g) => (
               <div key={g}>
-                <input
-                  type="radio"
-                  id={`genre-${g}`}
-                  value={g}
-                  checked={genre === g}
-                  onChange={(e) => setGenre(e.target.value)}
-                />
+                <input type="radio" id={`genre-${g}`} value={g} checked={genre === g} onChange={(e) => setGenre(e.target.value)} />
                 <label htmlFor={`genre-${g}`}>{g}</label>
               </div>
             ))}
@@ -479,5 +434,3 @@ export default function Share() {
     </div>
   );
 }
-
-
