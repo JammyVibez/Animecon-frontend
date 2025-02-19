@@ -19,32 +19,22 @@ const AnimeReactions = ({ post, currentUser, onReactionUpdate }) => {
   const [reactionCounts, setReactionCounts] = useState({});
   const API = process.env.REACT_APP_API_URL;
 
-  // useEffect(() => {
-  //   if (!post || !Array.isArray(post.likes)) return;
-
-  //   const userLike = post.likes.find((like) => like.userId === currentUser._id);
-  //   setIsLiked(!!userLike);
-  //   setSelectedReaction(userLike ? reactions.find((r) => r.id === userLike.reaction) : null);
-
-  //   const counts = reactions.reduce((acc, reaction) => {
-  //     acc[reaction.id] = post.likes.filter((like) => like.reaction === reaction.id).length;
-  //     return acc;
-  //   }, {});
-  //   setReactionCounts(counts);
-  // }, [currentUser._id, post?.likes]);
-
   useEffect(() => {
-    const userLike = post.likes.find((like) => like.userId === currentUser._id);
+    if (!post || !Array.isArray(post.likes)) return; // Ensure post and likes exist
+  
+    const userLike = post.likes?.find((like) => like.userId === currentUser?._id);
     setIsLiked(!!userLike);
     setSelectedReaction(userLike ? reactions.find((r) => r.id === userLike.reaction) : null);
-
+  
     // Aggregate reaction counts
     const counts = reactions.reduce((acc, reaction) => {
-      acc[reaction.id] = post.likes.filter((like) => like.reaction === reaction.id).length;
+      acc[reaction.id] = post.likes?.filter((like) => like.reaction === reaction.id).length || 0;
       return acc;
     }, {});
+  
     setReactionCounts(counts);
-  }, [currentUser._id, post.likes]);
+  }, [currentUser?._id, post?.likes]);
+  
 
   const handleReaction = async (reaction) => {
     try {
