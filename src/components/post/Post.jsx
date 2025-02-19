@@ -117,15 +117,15 @@ export default function Post({ post, bgColor }) {
   
 
   useEffect(() => { 
-    if (!post || !post.likes) return; // Ensure post and likes exist
+    if (!post || !Array.isArray(post.likes)) return; // Ensure `post.likes` is an array
     
-    // Find user's reaction from post.likes
     const userReaction = post.likes.find(
-      (like) => like.userId === currentUser?._id // Optional chaining to prevent errors
+        (like) => like.userId === currentUser?._id
     );
-  
+
     setReaction(userReaction ? userReaction.reaction : null);
-  }, [post?.likes]); // Optional chaining in dependency array
+}, [post?.likes]);
+
   
   const handleReactionUpdate = (newReaction) => {
     setReaction(newReaction);
