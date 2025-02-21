@@ -168,7 +168,7 @@ export default function Addfriend() {
 {Array.isArray(following) && following.slice(0, visibleFollowing).map((user) => (
                                     <div key={user?._id} className="friend-card">
                                         <img
-                                            src={user.profilePicture || "/assets/profilepic.jpgjpg"}
+                                            src={user.profilePicture || "/assets/profilepic.jpg"}
                                             className="profile-pic"
                                             alt={user.username}
                                         />

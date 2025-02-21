@@ -345,9 +345,7 @@ export default function Post({ post, bgColor }) {
               <img
                 className="postProfileImg"
                 src={
-                  user.profilePicture
-                    ? PF + user.profilePicture
-                    : "/assets/profilepic.jpg"
+                  user.profilePicture || "/assets/profilepic.jpg"
                 }
                 alt=""
               />
@@ -445,9 +443,7 @@ export default function Post({ post, bgColor }) {
                 <img
                   className="commentPostProfileImg"
                   src={
-                    c.profilePicture
-                      ? PF + c.profilePicture
-                      : PF + "/noProfile.jpg"
+                    c.profilePicture || "/assets/profilepic.jpg"
                   }
                   alt={`${c.username}'s profile`}
                 />
